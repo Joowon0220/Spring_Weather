@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace = "weather">
+
+<resultMap type="weatherDTO" id="weatherMap">
+	<result property="seq" column="SEQ"/>
+	<result property="insertime" column="INSERT_TIME"/>
+	<result property="baseDate" column="BASE_DATE"/>
+	<result property="baseTime" column="BASE_TIME"/>
+	<result property="t3h" column="T3H"/>
+	<result property="reh" column="REH"/>
+</resultMap>
+
+	<select id="selectlist" resultMap="weatherMap">
+		SELECT DISTINCT BASE_DATE, BASE_TIME, T3H, REH 
+		FROM WEATHER03 
+		ORDER BY BASE_DATE ASC, BASE_TIME ASC; 
+	</select>
+	
+	<insert id="insert" parameterType="weatherDTO">
+		INSERT INTO WEATHER03 
+		VALUES (#{seq},GETDATE(),#{baseDate},#{baseTime},#{t3h},#{reh})
+	
+	</insert>
+
+</mapper>
