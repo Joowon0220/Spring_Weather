@@ -17,6 +17,7 @@
 <body>
 
 	<h1>List</h1>
+	<button onclick="location.href='insertform.do'">데이터 받아오기</button>
 
 	<table border="1">
 		<col width="100">
@@ -51,20 +52,9 @@
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-	</table>
-
-	<form action="insertres.do" method="post">
+		
 	
-		<table>
-			<tr>
-				<td colspan="4" align="right">
-				<input type="submit" value="데이터받아오기" onclick="location.href='list.do'">
-					
-				</td>
-			</tr>
-		</table>
-
-	</form>
+	</table>
 
 
 
